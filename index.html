@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Project — Demo</title>
+  <meta name="description" content="A short demo page that embeds a YouTube video and a short project description." />
+  <!-- Open Graph for nicer sharing -->
+  <meta property="og:title" content="My Project — Demo" />
+  <meta property="og:description" content="A short demo page that embeds a YouTube video and a short project description." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7dd3fc;
+      --radius:14px;
+      --max-width:900px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #021026 100%);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page {
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+      box-sizing:border-box;
+    }
+
+    .card {
+      width:100%;
+      max-width:var(--max-width);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      box-sizing:border-box;
+    }
+
+    header {
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .logo {
+      width:56px;
+      height:56px;
+      flex:0 0 56px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent), rgba(125,211,252,0.18));
+      color:#012028;
+      font-weight:700;
+      font-size:20px;
+    }
+
+    h1 {
+      margin:0;
+      font-size:20px;
+      letter-spacing:-0.2px;
+    }
+
+    p.lead {
+      margin:8px 0 20px 0;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    /* Responsive video wrapper (16:9) */
+    .video-wrapper{
+      position:relative;
+      width:100%;
+      padding-top:56.25%; /* 16:9 aspect ratio */
+      border-radius:10px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+      margin-bottom:18px;
+    }
+
+    .video-wrapper iframe{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* small footer area */
+    .meta {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    a.button {
+      display:inline-block;
+      text-decoration:none;
+      background:rgba(125,211,252,0.08);
+      padding:8px 12px;
+      border-radius:8px;
+      color:var(--accent);
+      border:1px solid rgba(125,211,252,0.08);
+      font-weight:600;
+    }
+
+    @media (max-width:520px){
+      .card { padding:18px; }
+      header { gap:12px; }
+      h1 { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="card" role="main">
+      <header>
+        <div class="logo" aria-hidden="true">PJ</div>
+        <div>
+          <h1 id="project-title">Project Title</h1>
+          <p class="lead" id="project-sub">A concise one-line summary of the project. Replace with something meaningful.</p>
+        </div>
+      </header>
+
+      <!-- VIDEO: Replace YOUTUBE_ID below with the ID from the YouTube URL.
+           Example: https://www.youtube.com/watch?v=abcd1234 -> YOUTUBE_ID = abcd1234 -->
+      <div class="video-wrapper" aria-label="YouTube video player">
+        <iframe
+          id="ytplayer"
+          src="https://www.youtube.com/embed/YOUTUBE_ID?rel=0&showinfo=0"
+          title="Project video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Small project paragraph -->
+      <section aria-labelledby="about-heading">
+        <h2 id="about-heading" style="font-size:15px;margin:0 0 8px 0">About this project</h2>
+        <p id="project-desc" style="margin-top:0;color:var(--muted);line-height:1.6">
+          Replace this paragraph with a short description of the project: what it does, why it exists, and any
+          tech highlights or links. Keep it brief — a couple of sentences works best for a GitHub Pages demo.
+        </p>
+      </section>
+
+      <div class="meta" aria-hidden="false">
+        <span>Made with ❤️ — <strong>Author Name</strong></span>
+        <span>
+          <a class="button" href="https://github.com/USERNAME/REPO" target="_blank" rel="noopener">View on GitHub</a>
+        </span>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
